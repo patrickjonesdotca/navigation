@@ -20,20 +20,24 @@ get '/' do
       {
         http_verb: 'GET',
         description: 'midpoint calculation between two GPS Locations',
-        url_pattern: '/distance/get_midpoint/source/:source_lat/:source_long/target/:target_lat/:target_long' 
+        url_pattern: '/distance/get_midpoint/source/:source_lat/:source_long/target/:target_lat/:target_long'
       },
       {
         http_verb: 'GET',
         description: 'bearing calculation between two GPS Locations',
-        url_pattern: '/distance/get_bearing/source/:source_lat/:source_long/target/:target_lat/:target_long' 
+        url_pattern: '/distance/get_bearing/source/:source_lat/:source_long/target/:target_lat/:target_long'
       },
       {
         http_verb: 'GET',
         description: 'GPS location calculation given start, bearing, and distance',
-        url_pattern: '/destination_point/source/:source_lat/:source_long/bearing/:bearing/distance/:distance' 
+        url_pattern: '/destination_point/source/:source_lat/:source_long/bearing/:bearing/distance/:distance'
       }
     ]
   }.to_json
+end
+
+get '/echo' do
+  { ping: 'pong' }.to_json
 end
 
 get '/distance/haversine/source/:source_lat/:source_long/target/:target_lat/:target_long' do
